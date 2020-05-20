@@ -59,9 +59,18 @@ footer.appendChild(p1);
 let tabItems = document.querySelectorAll('.tab-item');
 
 function selecItem(e) {
-    (e.target.id == 'tab-0') ? (aContent.remove(), mContent.remove(), homeTab(content1), navBarSlide())
-        : (e.target.id == 'tab-1') ? (hContent.remove(), mContent.remove(), aboutTab(content1), navBarSlide())
-        : (hContent.remove(), aContent.remove(), menuTab(content1), navBarSlide());
+    (e.target.id == 'tab-0') ?
+        ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) ?
+            (aContent.remove(), mContent.remove(), homeTab(content1), navBarSlide())
+        : (aContent.remove(), mContent.remove(), homeTab(content1))
+    : (e.target.id == 'tab-1') ?
+        ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) ?
+            (hContent.remove(), mContent.remove(), aboutTab(content1), navBarSlide())
+        : (hContent.remove(), mContent.remove(), aboutTab(content1))
+    :
+        ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) ?
+            (hContent.remove(), aContent.remove(), menuTab(content1), navBarSlide())
+        : (hContent.remove(), aContent.remove(), menuTab(content1));
 };
 
 homeTab(content1);
