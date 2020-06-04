@@ -1,256 +1,259 @@
 @font-face {
-    font-family: rock-salt;
-    src: url(Rock_Salt/RockSalt-Regular.ttf);
+  font-family: rock-salt;
+  src: url(Rock_Salt/RockSalt-Regular.ttf);
 }
 
 body {
-    background: rgba(0, 0, 0, 0.9);
-    margin: 0;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden;
+  background: rgba(0, 0, 0, 0.9);
+  margin: 0;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
 }
 
 .showcase::after {
-    content: '';
+  content: '';
+  height: 100vh;
+  width: 100%;
+  background: url(restaurant2.jpg) no-repeat;
+  background-size: cover;
+  background-position: 0% 25%;
+  display: block;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  transition: all 1000ms;
+}
+
+.showcase:hover::after {
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+}
+
+.showcase:hover #home {
+  filter: blur(0.5px);
+  -webkit-filter: blur(0.5px);
+}
+
+/* Hide content */
+#home,
+#about,
+#menu {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  transition: all 1000ms;
+  background: rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 0.2rem black;
+  padding: 1em 1em;
+}
+
+#home {
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-55%);
+  width: 24em;
+  height: 7em;
+}
+
+#about {
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-55%);
+  width: 30em;
+  height: 15em;
+}
+
+#menu {
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 50em;
+  height: 23em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(4, auto);
+  margin-top: 1.5em;
+}
+
+.grid.grid:nth-child(-n + 3) {
+  font-size: 1.3em;
+}
+
+.menu-item {
+  font-size: 1rem;
+  padding: 1em 1em;
+}
+
+p {
+  font-size: 0.8rem;
+  margin: 0.2em 0.2em;
+}
+
+.title {
+  font-size: 1.5rem;
+}
+
+.text {
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
+.nav-bar {
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 5%;
+  overflow: hidden;
+  padding: 0.5em 0.5em;
+  display: flex;
+}
+
+.tab-item {
+  padding: 0.2em 2em;
+}
+
+.restaurant-name {
+  padding-left: 0.5em;
+  font-family: rock-salt;
+}
+
+.tab-item {
+  cursor: pointer;
+}
+
+.center {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background: #333;
+  color: #f4f4f4;
+  text-align: center;
+  padding: 0.7em;
+}
+
+footer p {
+  margin: 0;
+}
+
+.burger {
+  display: none;
+}
+
+.burger div {
+  width: 1.3em;
+  height: 0.1em;
+  background-color: white;
+  margin: 0.2em 0.1em;
+}
+
+/* portrait */
+@media (max-width: 760px) {
+  .showcase::after {
     height: 100vh;
     width: 100%;
     background: url(restaurant2.jpg) no-repeat;
     background-size: cover;
     background-position: 0% 25%;
     display: block;
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
-    transition: all 1000ms;
-}
-
-.showcase:hover::after {
     filter: blur(0px);
     -webkit-filter: blur(0px);
-}
+  }
 
-.showcase:hover #home {
-    filter: blur(0.5px);
-    -webkit-filter: blur(0.5px);
-}
-
-/* Hide content */
-#home, #about, #menu {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    text-align: center;
-    transition: all 1000ms;
-    background: rgba(0, 0, 0, 0.2);
-    text-shadow: 0 0 0.2rem black;
-    padding: 1em 1em;
-}
-
-#home {
-    top: 45%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-55%);
-    width: 24em;
-    height: 7em;
-}
-
-#about {
-    top: 45%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-55%);
-    width: 30em;
-    height: 15em;
-}
-
-#menu {
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    width: 50em;
-    height: 23em;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-template-rows: repeat(4, auto);
-    margin-top: 1.5em;
-}
-
-.grid.grid:nth-child(-n+3) {
-    font-size: 1.3em;
-}
-
-.menu-item {
-    font-size: 1rem;
-    padding: 1em 1em;
-}
-
-p {
-    font-size: 0.8rem;
-    margin: 0.2em 0.2em;
-}
-
-.title {
-    font-size: 1.5rem;
-}
-
-.text {
-    line-height: 1.7;
-    margin-top: 1rem;
-}
-
-.nav-bar {
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 5%;
+  body {
     overflow: hidden;
-    padding: 0.5em 0.5em;
+  }
+
+  .nav-bar {
+    width: 50vw;
+    height: 100vh;
+    right: 0;
     display: flex;
-}
+    flex-direction: column;
+    transform: translateX(100%); /* move container out of the screen */
+    transition: transform 0.5s ease-in;
+  }
 
-.tab-item {
-    padding: 0.2em 2em;
-}
+  .nav-bar-active {
+    transform: translateX(0%);
+  }
 
-.restaurant-name {
-    padding-left: 0.5em;
-    font-family: rock-salt;
-}
+  .restaurant-name,
+  .tab-item {
+    text-align: left;
+    padding: 0.5em 0em 0em 1em;
+  }
 
-.tab-item {
-    cursor: pointer;
-}
+  .burger {
+    top: 5%;
+    transform: translateX(-80%);
+    margin-left: 3em;
+    display: block;
+    position: absolute;
+    z-index: 2;
+  }
 
-.center {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    background: #333;
-    color: #f4f4f4;
-    text-align: center;
-    padding: 0.7em;
-}
+  .tab-item {
+    opacity: 0;
+  }
 
-footer p {
-    margin: 0;
-}
+  @keyframes tabItemFade {
+    from {
+      opacity: 0;
+      transform: translateX(3em);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0em);
+    }
+  }
 
-.burger {
+  .x .line1 {
+    transform: rotate(-45deg) translate(-0.1em, 0.3em);
+  }
+  .x .line2 {
+    opacity: 0;
+  }
+  .x .line3 {
+    transform: rotate(45deg) translate(-0.1em, -0.3em);
+  }
+
+  #menu {
+    width: 90%;
+    height: 27em;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 23em;
+    overflow: auto;
+  }
+
+  #menu::-webkit-scrollbar {
     display: none;
-}
+  }
 
-.burger div {
-    width: 1.3em;
-    height: 0.1em;
-    background-color: white;
-    margin: 0.2em 0.1em;
-}
+  #about,
+  #home {
+    width: 90%;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-60%);
+    font-size: 1rem;
+  }
 
+  #about {
+    height: 20em;
+  }
 
-/* portrait */
-@media(max-width: 760px) {
-    .showcase::after {
-        height: 100vh;
-        width: 100%;
-        background: url(restaurant2.jpg) no-repeat;
-        background-size: cover;
-        background-position: 0% 25%;
-        display: block;
-        filter: blur(0px);
-        -webkit-filter: blur(0px);
-    }
-
-    body {
-        overflow: hidden;
-    }
-
-    .nav-bar {
-        width: 50vw;
-        height: 100vh;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        transform: translateX(100%); /* move container out of the screen */
-        transition: transform 0.5s ease-in;
-    }
-
-    .nav-bar-active {
-        transform: translateX(0%);
-    }
-
-    .restaurant-name, .tab-item {
-        text-align: left;
-        padding: 0.5em 0em 0em 1em;
-    }
-
-    .burger {
-        top: 5%;
-        transform: translateX(-80%);
-        margin-left: 3em;
-        display: block;
-        position: absolute;
-        z-index: 2;
-    }
-
-    .tab-item {
-        opacity: 0;
-    }
-
-    @keyframes tabItemFade {
-        from {
-            opacity: 0;
-            transform: translateX(3em);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0em);
-        }
-    }
-
-    .x .line1 {
-        transform: rotate(-45deg) translate(-0.1em, 0.3em);
-    }
-    .x .line2 {
-        opacity: 0;
-    }
-    .x .line3 {
-        transform: rotate(45deg) translate(-0.1em, -0.3em);
-    }
-
-    #menu {
-        width: 90%;
-        height: 27em;
-        top: 10%;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 23em;
-        overflow: auto;
-    }
-    
-    #menu::-webkit-scrollbar {
-        display: none;
-    }
-
-    #about, #home {
-        width: 90%;
-        top: 40%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-60%);
-        font-size: 1rem;
-    }
-
-    #about {
-        height: 20em;
-    }
-
-    .center {
-        width: 100%;
-        height: 2em;
-        position: relative;
-        top: auto;
-    }
+  .center {
+    width: 100%;
+    height: 2em;
+    position: relative;
+    top: auto;
+  }
 }
